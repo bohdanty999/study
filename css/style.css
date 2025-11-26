@@ -1,39 +1,41 @@
 /* poppins-300 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 300;
-  src: url('../fonts/poppins-v24-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/poppins-v24-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* poppins-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/poppins-v24-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/poppins-v24-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* poppins-600 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/poppins-v24-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/poppins-v24-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* poppins-900 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 900;
-  src: url('../fonts/poppins-v24-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/poppins-v24-latin-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 :root {
   --color-brand: #819b57;
   --color-primary-light: #faf4ea;
   --color-primary-dark: #31261a;
   --color-brand-dark: #465929;
+  --color-brand-accent: #cfcfbc;
+  --color-secondary-dark: #a18268;
 }
 
 /* base */
@@ -42,6 +44,7 @@
 }
 body {
   color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
   font-family: Poppins, sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -133,6 +136,10 @@ ul {
 /* hero section */
 .hero-section {
   padding: 272px 0px;
+  background-image: url("../images/hero-section-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 .hero-title {
   margin-bottom: 0;
@@ -156,11 +163,15 @@ ul {
   gap: 40px;
 }
 
+/* titles */
 .titles {
   color: var(--color-primary-dark);
   font-size: 64px;
   font-weight: 900;
   line-height: 1.3;
+}
+
+.titles.centered {
   text-align: center;
 }
 
@@ -203,8 +214,26 @@ ul {
 }
 
 /* chef section */
+.chef-photo {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 200px;
+  box-shadow: -16px 16px 0 0 var(--color-primary-light),
+    -16px 16px 0 2px var(--color-secondary-dark);
+}
+
 .chefs-title {
-  margin-bottom: 80px;
+  max-width: 520px;
+  margin: 0 auto 80px;
+}
+
+.chefs-title::after,
+.chefs-title::before {
+  display: block;
+  width: 352px;
+  border: 2px solid var(--color-brand-accent);
+  content: "";
 }
 .chef-title {
   margin-bottom: 16px;
@@ -221,6 +250,14 @@ ul {
   flex-wrap: wrap;
 }
 .format-card {
+  height: 444px;
+  width: 349px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 38, 26, 0) 55.21%,
+    rgba(49, 38, 26, 0.71) 72.92%,
+    #31261a 100%
+  );
   padding: 0 24px;
   border: 1px solid lightgray;
   border-radius: 16px;
@@ -236,6 +273,26 @@ ul {
   font-size: 14px;
   font-weight: 300;
 }
+/* carousel */
+.carousel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--color-primary-dark);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--color-primary-dark);
+  padding: 0;
+  cursor: pointer;
+}
+
+.carousel-button:hover {
+  background-color: var(--color-primary-dark);
+  fill: var(--color-primary-light);
+}
+
 /* contact section */
 .contacts-title {
   margin-bottom: 16px;
@@ -252,6 +309,22 @@ ul {
   color: var(--color-brand);
 }
 
+.address-socials {
+  height: 32px;
+  width: 32px;
+  fill: var(--color-primary-light);
+}
+.address-socials:hover {
+  fill: var(--color-brand);
+}
+
 .address-copyright {
   font-size: 14px;
+}
+.footer {
+  background-image: url(../images/footer-background\ png.png);
+  background-color: var(--color-primary-dark);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
