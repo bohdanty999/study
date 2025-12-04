@@ -97,6 +97,7 @@ a {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  transition: background-color 0.3s;
 }
 
 .button:hover {
@@ -105,7 +106,11 @@ a {
 }
 /* header */
 .header {
-  background-color: lightgray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 32px;
 }
 .header-container {
   display: flex;
@@ -132,6 +137,7 @@ a {
   color: var(--color-primary-light);
   text-decoration: none;
   line-height: 1.5;
+  transition: color 0.3s;
 }
 .link:hover {
   color: var(--color-brand);
@@ -141,7 +147,13 @@ a {
 /* hero section */
 .hero-section {
   padding: 272px 0px;
-  background-image: url("../images/hero-section-background.jpg");
+  background-image: linear-gradient(
+      102.76deg,
+      rgba(18, 18, 17, 0.78) 2.03%,
+      rgba(18, 18, 17, 0.6) 58.46%,
+      rgba(18, 18, 17, 0) 90.36%
+    ),
+    url("../images/hero-section-background.jpg");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -196,7 +208,7 @@ a {
   gap: 40px;
 }
 .traditions-content {
-  max-width: 710px;
+  max-width: 650px;
 }
 .traditions-title {
   margin-bottom: 42px;
@@ -227,22 +239,19 @@ a {
 
 .chefs-title::after,
 .chefs-title::before {
-  display: block;
+  bottom: 24px;
+  position: absolute;
   width: 352px;
   border: 2px solid var(--color-brand-accent);
   content: "";
 }
 
 .chefs-title::after {
-  position: absolute;
   right: -0px;
-  bottom: 24px;
 }
 
 .chefs-title::before {
-  position: absolute;
   left: -0px;
-  bottom: 24px;
 }
 
 .chef-title {
@@ -268,7 +277,7 @@ a {
 
 .chefs-card {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 40px 30px;
 }
 
@@ -302,7 +311,13 @@ a {
   padding: 0 24px;
   border: 1px solid lightgray;
   border-radius: 16px;
+  transition: transform 0.3s;
 }
+
+.format-card:hover {
+  transform: scale(1.05);
+}
+
 .formats.title {
   margin-bottom: 80px;
 }
@@ -343,6 +358,10 @@ a {
   fill: var(--color-primary-light);
 }
 
+.carousel-button.next {
+  transform: rotate(180deg);
+}
+
 /* contact section */
 
 .contact-section {
@@ -365,6 +384,39 @@ a {
 }
 
 /* footer */
+
+.footer {
+  position: relative;
+  background-image: url(../images/footer-background\ png.png);
+  background-color: var(--color-primary-dark);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 32px 0px;
+}
+
+.footer::before,
+footer::after {
+  bottom: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  content: "";
+}
+
+footer::before {
+  background-image: url(../images/decor-bread-small.png);
+  width: 180px;
+  height: 120px;
+  left: 0;
+}
+
+.footer::after {
+  background-image: url(../images/decor-bread-large.png);
+  width: 380px;
+  height: 190px;
+  right: 0;
+}
+
 .footer-container {
   display: flex;
   gap: 20px;
@@ -380,11 +432,13 @@ a {
 .footer-menu,
 .footer-logo {
   flex-grow: 1;
+  margin: 0;
 }
 
 .address-list,
 .address-info {
   flex-grow: 1;
+  margin: 0;
 }
 
 .address-link {
@@ -409,12 +463,66 @@ a {
 
 .address-copyright {
   font-size: 14px;
+  color: var(--color-secondary-dark);
 }
-.footer {
-  background-image: url(../images/footer-background\ png.png);
-  background-color: var(--color-primary-dark);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 32px 0px;
+
+.logos {
+  display: flex;
+  gap: 22px;
+}
+/* solo try prob delete later */
+
+/* form */
+.form-accent {
+  color: var(--color-brand-dark);
+}
+
+/* Modal */
+.backdrop {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  height: 100%;
+  max-height: 880px;
+  padding: 128px;
+  background-color: var(--color-primary-light);
+  border-radius: 32px;
+  overflow-y: auto;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-btn-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+/* Form */
+
+.form-label {
+  display: block;
+}
+
+.form-input {
+  padding: 16px 42px;
+  width: 100%;
 }

@@ -20,7 +20,7 @@
       <div class="container">
         <div class="header-container">
           <nav class="header-nav">
-            <a href="/">
+            <a href="index.html">
               <img src="./images/logo.svg" alt="Лого сучасної пекарні" />
             </a>
             <ul class="header-menu">
@@ -31,7 +31,9 @@
               <li><a class="link" href="#formats-section">Формати</a></li>
               <li><a class="link" href="#contacts-section">Контакти</a></li>
             </ul>
-            <button class="button" type="button">Зробити дзвінок</button>
+            <button class="button modal-btn-open" type="button">
+              Зробити дзвінок
+            </button>
           </nav>
         </div>
       </div>
@@ -185,7 +187,7 @@
                 </article>
               </li>
             </ul>
-            <button class="carousel-button" type="button">
+            <button class="carousel-button next" type="button">
               <svg width="16" height="16">
                 <use href="./images/icons.svg#icon-Arrow-1"></use>
               </svg>
@@ -200,7 +202,11 @@
               <h2 class="contacts-title titles">
                 Приєднуйся до мережі пекарень
               </h2>
-              <p>Заповни форму, щоб ми звʼязались з тобою!</p>
+              <p>
+                <span class="form-accent"
+                  >Заповни форму, щоб ми звʼязались з тобою!</span
+                >
+              </p>
               <!-- form -->
             </div>
             <iframe
@@ -255,20 +261,23 @@
                   >Україна, м. Київ, вул. Січових Стрільців 54</a
                 >
               </li>
-              <li>
-                <a href="#">
-                  <svg class="address-socials">
-                    <use href="./images/icons.svg#icon-instagram"></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="@">
-                  <svg class="address-socials">
-                    <use href="./images/icons.svg#icon-facebook"></use>
-                  </svg>
-                </a>
-              </li>
+              <div class="logos">
+                <!-- /* solo try prob delete later */ -->
+                <li>
+                  <a href="#">
+                    <svg class="address-socials">
+                      <use href="./images/icons.svg#icon-instagram"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="@">
+                    <svg class="address-socials">
+                      <use href="./images/icons.svg#icon-facebook"></use>
+                    </svg>
+                  </a>
+                </li>
+              </div>
             </ul>
             <div class="address-info">
               <a class="address-link" href="#" target="_blank">
@@ -280,5 +289,48 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop">
+      <div class="modal">
+        <button class="modal-btn-close" type="button">Close</button>
+        <h2>Замовити дзвінок</h2>
+        <p>Залишіть заявку та наш спеціаліст зв'яжеться з Вами!</p>
+        <form name="contact-form" autocomplete="off" novalidate>
+          <label class="form-label" for="user-name">Ім'я</label>
+          <input
+            class="form-input"
+            type="text"
+            id="user-name"
+            name="user-name"
+          />
+
+          <label class="form-label" for="">Телефон</label>
+          <input
+            class="form-input"
+            tform-ype="tel"
+            name="user-tel"
+            id="user-tel"
+          />
+
+          <label class="form-label" for="user-email">Електронна пошта</label>
+          <input
+            class="form-input"
+            type="email"
+            name="user-email"
+            id="user-email"
+          />
+
+          <button type="submit">Замовити дзвінок</button>
+          <p>
+            Натискаючи на кнопку я погоджуюсь з
+            <a href="#">політикою конфіденційності</a>
+          </p>
+
+          <label for=""></label>
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
