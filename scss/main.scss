@@ -1,193 +1,15 @@
-/* poppins-300 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Poppins";
-  font-weight: 300;
-  src: url("../fonts/poppins-v24-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* poppins-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/poppins-v24-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* poppins-600 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../fonts/poppins-v24-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* poppins-900 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 900;
-  src: url("../fonts/poppins-v24-latin-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-:root {
-  --color-brand: #819b57;
-  --color-primary-light: #faf4ea;
-  --color-primary-dark: #31261a;
-  --color-brand-dark: #465929;
-  --color-brand-accent: #cfcfbc;
-  --color-secondary-dark: #a18268;
-}
+@import "./utils/fonts";
+@import "./utils/variables";
 
-/* base */
-*,
-*::after,
-*:before {
-  box-sizing: border-box;
-}
-body {
-  color: var(--color-primary-dark);
-  background-color: var(--color-primary-light);
-  font-family: Poppins, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0;
-}
-.container {
-  width: 100%;
-  max-width: 1288px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-top: 0;
-}
-address {
-  font-style: normal;
-}
-ul {
-  list-style-type: none;
-}
-a {
-  display: inline-blockx;
-}
-.section {
-  padding: 48px 0;
-}
-.hidden {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-/* button */
-.button {
-  padding: 16px 32px;
-  color: var(--color-primary-light);
-  background-color: var(--color-brand);
-  border: var(--color-brand) 2px solid;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
+@import "./base";
+@import "./utils/utils.scss";
 
-/* button:disabled {
-  color: gray;
-  background-color: lightgray;
-  border-color: currentColor;
-  cursor: not-allowed;
-} */
+@import "./components/buttons";
 
-.button:hover {
-  background-color: transparent;
-  color: var(--color-brand);
-}
-
-/* header */
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding-top: 32px;
-  .header-container {
-    display: flex;
-    align-items: center;
-  }
-}
-
-.header-nav {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  gap: 40px;
-}
-.header-menu {
-  display: flex;
-}
-
-.header-menu {
-  display: flex;
-  gap: 64px;
-  flex-grow: 1;
-  justify-content: center;
-}
-/* link */
-.link {
-  color: var(--color-primary-light);
-  text-decoration: none;
-  line-height: 1.5;
-  transition: color 0.3s;
-}
-.link:hover {
-  color: var(--color-brand);
-  text-decoration: none;
-  /* text-transform: uppercase; */
-}
-/* hero section */
-.hero-section {
-  padding: 272px 0px;
-  background-image: linear-gradient(
-      102.76deg,
-      rgba(18, 18, 17, 0.78) 2.03%,
-      rgba(18, 18, 17, 0.6) 58.46%,
-      rgba(18, 18, 17, 0) 90.36%
-    ),
-    url("../images/hero-section-background.jpg");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-}
-.hero-title {
-  margin-bottom: 0;
-  color: var(--color-primary-light);
-  text-align: center;
-  font-size: 128px;
-  font-weight: 900;
-}
-
-.hero-title .accent {
-  color: var(--color-brand);
-}
-/* advantages section */
-.advantages-section {
-  padding: 16px 0px;
-  background-color: var(--color-brand);
-}
-.advantages-list {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+@import "./components/links";
+@import "./components/header";
+@import "./components/hero-section";
+@import "./components/advantages-section";
 
 /* titles */
 .titles {
@@ -301,7 +123,7 @@ a {
 
 /* formats section */
 .formats-item {
-  flex-basis: calc(100% / 3);
+  flex-basis: calc((100% - 40px) / 3);
 }
 .formats-list {
   display: flex;
@@ -309,6 +131,7 @@ a {
   flex-wrap: nowrap;
 }
 .format-card {
+  position: relative;
   height: 444px;
   width: 349px;
   background-image: linear-gradient(
@@ -317,7 +140,7 @@ a {
     rgba(49, 38, 26, 0.71) 72.92%,
     #31261a 100%
   );
-  padding: 0 24px;
+  padding: 24px;
   border: 1px solid lightgray;
   border-radius: 16px;
   transition: transform 0.3s;
@@ -327,16 +150,27 @@ a {
   transform: scale(1.05);
 }
 
+.format-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 .formats.title {
   margin-bottom: 80px;
 }
 .format-title {
   font-style: 14px;
   font-weight: 600;
+  color: var(--color-primary-light);
 }
 .format-text {
   font-size: 14px;
   font-weight: 300;
+  color: var(--color-primary-light);
 }
 
 .formats-container {
@@ -585,7 +419,7 @@ footer::before {
   text-align: center;
 }
 
-.forms-terms-links {
+.form-terms-links {
   color: var(--color-primary-dark);
   text-underline-offset: 2px;
 }
