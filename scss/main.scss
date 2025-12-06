@@ -119,11 +119,12 @@ a {
   left: 0;
   width: 100%;
   padding-top: 32px;
+  .header-container {
+    display: flex;
+    align-items: center;
+  }
 }
-.header-container {
-  display: flex;
-  align-items: center;
-}
+
 .header-nav {
   display: flex;
   align-items: center;
